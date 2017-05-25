@@ -17,6 +17,14 @@ public class BeanUser implements java.io.Serializable {
 	private String profilePicture = "";
 
 	
+	public String getProfilePicture() {
+		return profilePicture;
+	}
+
+	public void setProfilePicture(String profilePicture) {
+		this.profilePicture = profilePicture;
+	}
+
 	/*  Control which parameters have been correctly filled */
 	private int[] error = {0,0}; 
 	
