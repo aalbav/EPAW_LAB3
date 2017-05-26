@@ -44,22 +44,22 @@ public class FormController extends HttpServlet {
 		   //sI SOC AFQUI
 		   
 		   if (user.isComplete()) {
-			   int result = 0;
-			   try {
-				   DAO dao = new DAO();
-				   String query2="INSERT INTO users (user, name, middleName, lastName, mail, password, birthdate, profilePicture) VALUES ('"+user.getUser()+"', '"+user.getName()+"', '"+user.getMiddleName()+"','"+user.getLastName()+"','"+user.getMail()+"','"+user.getPassword()+"','"+user.getBirthdate()+"','"+user.getProfilePicture()+"')";
-				   result = dao.executeInsert(query2);
-				   if(result !=0) {
-					   request.setAttribute("llista",listUsers());
-					   RequestDispatcher requestDispatcher = request.getRequestDispatcher("ShowDatabase.jsp");
-					   requestDispatcher.forward(request,response);
-				   }
-				   
-					  
-				   } catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			  // int result = 0;
+//			   try {
+//				   DAO dao = new DAO();
+//				   String query2="INSERT INTO users (user, name, middleName, lastName, mail, password, birthdate, profilePicture) VALUES ('"+user.getUser()+"', '"+user.getName()+"', '"+user.getMiddleName()+"','"+user.getLastName()+"','"+user.getMail()+"','"+user.getPassword()+"','"+user.getBirthdate()+"','"+user.getProfilePicture()+"')";
+//				   result = dao.executeInsert(query2);
+//				   if(result !=0) {
+//					   request.setAttribute("llista",listUsers());
+//					   RequestDispatcher requestDispatcher = request.getRequestDispatcher("ShowDatabase.jsp");
+//					   requestDispatcher.forward(request,response);
+//				   }
+//				   
+//					  
+//				   } catch (Exception e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
 		   } 
 		   else {
 			   request.setAttribute("user",user);
@@ -78,13 +78,13 @@ public class FormController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if( request.getParameter("q") != null ){
 			String text = request.getParameter("q");
-			DAO dao;
+			//DAO dao;
 			try {
-				dao = new DAO();
-				ResultSet f = dao.executeSQL("SELECT COUNT(*) FROM users WHERE user='" + text + "';");
-				f.next(); 
-				//int i = Integer.parseInt(f.getString(1));
-				response.addIntHeader(text, 0);
+//				dao = new DAO();
+//				ResultSet f = dao.executeSQL("SELECT COUNT(*) FROM users WHERE user='" + text + "';");
+//				f.next(); 
+//				//int i = Integer.parseInt(f.getString(1));
+//				response.addIntHeader(text, 0);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -97,30 +97,30 @@ public class FormController extends HttpServlet {
 	
 	protected List<BeanUser> listUsers()
 	{		
-		DAO dao;
-		try {
-			List<BeanUser> llista = new ArrayList<BeanUser>();
-			dao = new DAO();
-			String query = "SELECT * FROM practica2.users";
-			ResultSet resultados = dao.executeSQL(query);
-			 while(resultados.next()) {
-				 	BeanUser nou = new BeanUser();
-				 	nou.setUser(resultados.getString(1));
-				 	nou.setName(resultados.getString(2));
-				 	nou.setMiddleName(resultados.getString(3));
-				 	nou.setLastName(resultados.getString(4));
-				 	nou.setMail(resultados.getString(5));
-				 	nou.setPassword(resultados.getString(6));
-				 	nou.setBirthdate(resultados.getString(7));
-				 	nou.setProfilePicture(( resultados.getString(8).length() != 0) ? resultados.getString(8) :
-				 		"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVkz6wCwKomtM0UZmpsvl_SsnQtP5RaRsl4xV-FLJGchb6KUSS");
-				 	llista.add(nou);
-			 }
-			 return llista;
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		DAO dao;
+//		try {
+//			List<BeanUser> llista = new ArrayList<BeanUser>();
+//			dao = new DAO();
+//			String query = "SELECT * FROM practica2.users";
+//			ResultSet resultados = dao.executeSQL(query);
+//			 while(resultados.next()) {
+//				 	BeanUser nou = new BeanUser();
+//				 	nou.setUser(resultados.getString(1));
+//				 	nou.setName(resultados.getString(2));
+//				 	nou.setMiddleName(resultados.getString(3));
+//				 	nou.setLastName(resultados.getString(4));
+//				 	nou.setMail(resultados.getString(5));
+//				 	nou.setPassword(resultados.getString(6));
+//				 	nou.setBirthdate(resultados.getString(7));
+//				 	nou.setProfilePicture(( resultados.getString(8).length() != 0) ? resultados.getString(8) :
+//				 		"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVkz6wCwKomtM0UZmpsvl_SsnQtP5RaRsl4xV-FLJGchb6KUSS");
+//				 	llista.add(nou);
+//			 }
+//			 return llista;
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		return null;
 		
 	}

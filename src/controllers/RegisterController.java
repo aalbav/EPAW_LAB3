@@ -42,7 +42,22 @@ public class RegisterController extends HttpServlet {
 		   BeanUtils.populate(user, request.getParameterMap());
 		
 		   if (user.isComplete()) {
-		   
+			   int result = 0;
+			   try {
+				   DAO dao = new DAO();
+				   String query2="INSERT INTO users (user, name, middleName, lastName, mail, password, birthdate, profilePicture) VALUES ('"+user.getUser()+"', '"+user.getName()+"', '"+user.getMiddleName()+"','"+user.getLastName()+"','"+user.getMail()+"','"+user.getPassword()+"','"+user.getBirthdate()+"','"+user.getProfilePicture()+"')";
+				   result = dao.executeInsert(query2);
+				   if(result !=0) {
+					   //request.setAttribute("llista",listUsers());
+					  // RequestDispatcher requestDispatcher = request.getRequestDispatcher("ShowDatabase.jsp");
+					   //requestDispatcher.forward(request,response);
+				   }
+				   
+					  
+				   } catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			   RequestDispatcher dispatcher = request.getRequestDispatcher("ViewLoginForm.jsp");
 			   dispatcher.forward(request, response);
 		   

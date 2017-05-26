@@ -1,7 +1,7 @@
 package models;
 import java.sql.ResultSet;
 
-import controllers.DAO;
+//import controllers.DAO;
 public class BeanUser implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -68,12 +68,13 @@ public class BeanUser implements java.io.Serializable {
 	/*Setters*/
 	public void setUser(String user){
 		try {
-			DAO dao = new DAO();
-			ResultSet f = dao.executeSQL("SELECT COUNT(*) FROM users WHERE user='" + user + "';");
-			f.next(); int i = Integer.parseInt(f.getString(1));
-			if(i!=0)setError(0,1);
-			
-			else this.user = user;
+//			DAO dao = new DAO();
+//			ResultSet f = dao.executeSQL("SELECT COUNT(*) FROM users WHERE user='" + user + "';");
+//			f.next(); int i = Integer.parseInt(f.getString(1));
+//			if(i!=0)setError(0,1);
+//			
+//			else 
+				this.user = user;
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -83,11 +84,12 @@ public class BeanUser implements java.io.Serializable {
 	
 	public void setMail(String mail){
 		try {
-			DAO dao = new DAO();
-			ResultSet f = dao.executeSQL("SELECT COUNT(*) FROM users WHERE mail='" + mail + "';");
-			f.next(); int i = Integer.parseInt(f.getString(1));
-			if(i!=0)setError(1,1); 
-			else this.mail = mail;
+//			DAO dao = new DAO();
+//			ResultSet f = dao.executeSQL("SELECT COUNT(*) FROM users WHERE mail='" + mail + "';");
+//			f.next(); int i = Integer.parseInt(f.getString(1));
+//			if(i!=0)setError(1,1); 
+//			else 
+			this.mail = mail;
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -131,7 +133,8 @@ public class BeanUser implements java.io.Serializable {
 	           hasValue(getName()) &&
 	           hasValue(getLastName()) &&
 	           hasValue(getPassword()) &&
-	           hasValue(getBirthdate()));
+	           hasValue(getBirthdate())
+	           );
 	}
 	
 	private boolean hasValue(String val) {

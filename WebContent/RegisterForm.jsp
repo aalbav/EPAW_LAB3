@@ -67,7 +67,7 @@ $(document).ready(function(){
 			    System.out.println(this.getAllResponseHeaders());
 			  }
 			};
-			xhttp.open("POST", "FormController?q="+str, true);
+			xhttp.open("POST", "RegisterController?q="+str, true);
 			xhttp.send();   
 		},
 		messages : {
@@ -114,27 +114,27 @@ else {
 %>
 <div class="wrapper">
     <div class="form-container">
-<form class="form-signin" action="FormController" method="post" id="registerForm">
+<form class="form-signin" action="RegisterController" method="post" id="registerForm">
 <h2 class="form-signin-heading">Registration</h2>
 <fieldset>
 <div class="container-input">
 	<label for="name" class="sr-only">Name*</label>
-	<input id="name" name="name" type="text" placeholder="Name*" class="form-control" value="<%=user.getName()%>" required autofocus>
+	<input id="name" name="name" type="text" placeholder="Name*" class="form-control" value="${user.name}" required autofocus>
 </div>
 
 <div class="container-input">
 	<label for="middleName" class="sr-only">Middle name</label>
-	<input id="middleName" type="text" name="middleName" value="<%=user.getMiddleName()%>" id="middleName" placeholder="Middle name" class="form-control" autofocus>
+	<input id="middleName" type="text" name="middleName" value="${user.middleName}" id="middleName" placeholder="Middle name" class="form-control" autofocus>
 	
 </div>
 <div class="container-input">
 	<label for="lastName" class="sr-only">Last name</label>
-	<input id="lastName" type="text" name="lastName" value="<%=user.getLastName()%>" id="lastName" placeholder="Last name*" class="form-control" required autofocus>
+	<input id="lastName" type="text" name="lastName" value="${user.lastName}" id="lastName" placeholder="Last name*" class="form-control" required autofocus>
 </div>
 
 <div class="container-input">
 	<div class="input-group input-append date" id="datePicker">
-		<input type="text" class="form-control" id="birthdate" name="birthdate" placeholder="Date" value="<%=user.getBirthdate()%>" required autofocus/>
+		<input type="text" class="form-control" id="birthdate" name="birthdate" placeholder="Date" value="${user.birthdate}" required autofocus/>
 		<span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
 	</div>
 </div>
@@ -142,7 +142,7 @@ else {
 
 <div class="container-input">
 	<label for="user" class="sr-only">Username*</label>
-	<input type="text" name="user" id="user" value="<%=user.getUser() %>" minlength="5" placeholder="Username*" class="form-control" required autofocus">
+	<input type="text" name="user" id="user" value="${user.user}" minlength="5" placeholder="Username*" class="form-control" required autofocus">
 <%   
 	if (user.getError()[0] == 1) {
       %> 
@@ -157,32 +157,33 @@ else {
 </div>
 <div class="container-input">
 	<label for="mail" class="sr-only">E-mail</label>
-	<input type="email" name="mail" id="mail" value="<%=user.getMail() %>" placeholder="E-mail*" class="form-control" required email autofocus>
+	<input type="email" name="mail" id="mail" value="${user.mail}" placeholder="E-mail*" class="form-control" required email autofocus>
 <%   
 	if (user.getError()[1] == 1) {
       %> 
       <div class="error">
-           The email already exists!
+           The username already exists!
       </div>
       <% 
      }
-	user.setError(1,0);
+	user.setError(0,0);
 %>
+
 
 </div>
 <div class="container-input">
 	<label for="password" class="sr-only">Password*</label>
-	<input type="password" name="password" value="<%=user.getPassword()%>" id="password" placeholder="Password*" class="form-control" required autofocus>
+	<input type="password" name="password" value="${user.password}" id="password" placeholder="Password*" class="form-control" required autofocus>
 </div>
 
 <div class="container-input">
 	<label for="confirmationPassword" class="sr-only">Password confirmation*</label>
-	<input type="password" name="confirmationPassword" value="<%=user.getConfirmationPassword()%>" id="confirmationPassword" placeholder="Password confirmation*" class="form-control" required autofocus>
+	<input type="password" name="confirmationPassword" value="${user.confirmationPassword}" id="confirmationPassword" placeholder="Password confirmation*" class="form-control" required autofocus>
 </div>
 
 <div  class="container-input">
 	<label for="profilePicture" class="sr-only">Profile Picture</label>
-	<input type="text" name="profilePicture" value="<%=user.getProfilePicture()%>" id="profilePicture" placeholder="Profile Picture (URL)" class="form-control" onblur="checkImage()" autofocus>
+	<input type="text" name="profilePicture" value="${user.profilePicture}" id="profilePicture" placeholder="Profile Picture (URL)" class="form-control" onblur="checkImage()" autofocus>
 </div>
 
 <div id = "demo"></div>
