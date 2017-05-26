@@ -1,0 +1,17 @@
+@CHARSET "UTF-8";
+#header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    border: 3px solid #73AD21;
+    z-index: 99;
+}
+
+#footer{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    border: 3px solid #73AD21;
+}

@@ -25,77 +25,18 @@ $(document).ready(function(){
      $("#registerForm").validate({
 		rules : {
 			name : "required",
-			mail : {
-				required : true,
-				email : true
-			},
-			user : {
-				required : true,
-				onfocusout: true
-			},
+			
 			password : {
-				required : true,
-				minlength : 5
-			},
-			confirmationPassword : {
-				minlength : 5,
-				equalTo : "#password"
-			}, 
-			profilePicture : {
-				maxlength : 100,
-				onfocusout : function checkImage() {
-				System.out.println("imateges")
-				  var xhttp = new XMLHttpRequest();
-				  xhttp.onreadystatechange = function() {
-				    if (this.readyState == 4 && this.status == 200) {
-				     document.getElementById("demo").innerHTML = "<img src=\'" + document.getElementById("profilePicture").value + "\'>";
-				    }
-				  };
-				  xhttp.open("GET", document.getElementById("profilePicture").value, true);
-				  xhttp.send();
-				}
-			}
-		},
-		onfocusout : function userName() {
-			System.out.println("jsp!!");
-			var xhttp;
-			var str = document.getElementById("user").value;
-			xhttp = new XMLHttpRequest();
-			xhttp.onreadystatechange = function() {
-			  if (this.readyState == 4 && this.status == 200) {
-			    document.getElementById("user").style.color = "orange";
-			    System.out.println(this.getAllResponseHeaders());
-			  }
-			};
-			xhttp.open("POST", "FormController?q="+str, true);
-			xhttp.send();   
+				required : true
+			}  
 		},
 		messages : {
 			name : "Please enter your name",
-			user: "Please enter your username",
-			mail : "Please enter a valid email address",
 			password : {
 				required : "Please provide a password",
 				minlength : "Your password must be at least 5 characters long"
-			},
-			confirmationPassword : {
-				required : "Please repeat your password",
-				minlength : "Your password must be at least 5 characters long"
-			},
-			profilePicture : {
-				maxlength : "Your profile puctures must be at most 100 characters long"
 			}
 		}
-	});
-     
-     $('#datePicker')
-     .datepicker({
-         autoclose: true,
-         format: 'dd/mm/yyyy',
-         todayBtn: "linked",
-         language: "es",
-         todayHighlight: true
-     })
   });
 
 </script>
