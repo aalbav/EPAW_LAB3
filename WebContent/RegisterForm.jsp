@@ -114,7 +114,7 @@ else {
 %>
 <div class="wrapper">
     <div class="form-container">
-<form class="form-signin" action="/Lab_2/FormController" method="post" id="registerForm">
+<form class="form-signin" action="FormController" method="post" id="registerForm">
 <h2 class="form-signin-heading">Registration</h2>
 <fieldset>
 <div class="container-input">

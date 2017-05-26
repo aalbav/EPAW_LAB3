@@ -26,15 +26,14 @@ Class.forName("com.mysql.jdbc.Driver").newInstance();
 	statement.execute(sqlCreate);
 	
 	sqlCreate = "CREATE TABLE IF NOT EXISTS users"
-            + "  (user CHAR(24),"
+            + "  (user CHAR(24) PRIMARY KEY,"
             + "   name CHAR(50),"
             + "   middleName CHAR(50),"
             + "   lastName CHAR(50),"
-            + "   mail CHAR(50),"
+            + "   mail CHAR(50) NOT NULL,"
             + "   password CHAR(50),"
             + "   birthdate CHAR(50),"
-            + "   profilePicture CHAR(100),"
-            + "   id INTEGER NOT NULL AUTO_INCREMENT, PRIMARY KEY (id))";
+            + "   profilePicture CHAR(200))";
 
 	
 	statement = connection.createStatement();
