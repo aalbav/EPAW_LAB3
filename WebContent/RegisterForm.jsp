@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" media="screen">
-<link href="CSS/estil.css" rel="stylesheet">
+<link href="css/estil.css" rel="stylesheet">
 <title> Template Register Form (Validation JQuery) </title>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
@@ -138,3 +138,75 @@ else {
 		<span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
 	</div>
 </div>
+
+
+<div class="container-input">
+	<label for="user" class="sr-only">Username*</label>
+	<input type="text" name="user" id="user" value="<%=user.getUser() %>" minlength="5" placeholder="Username*" class="form-control" required autofocus">
+<%   
+	if (user.getError()[0] == 1) {
+      %> 
+      <div class="error">
+           The username already exists!
+      </div>
+      <% 
+     }
+	user.setError(0,0);
+%>
+
+</div>
+<div class="container-input">
+	<label for="mail" class="sr-only">E-mail</label>
+	<input type="email" name="mail" id="mail" value="<%=user.getMail() %>" placeholder="E-mail*" class="form-control" required email autofocus>
+<%   
+	if (user.getError()[1] == 1) {
+      %> 
+      <div class="error">
+           The email already exists!
+      </div>
+      <% 
+     }
+	user.setError(1,0);
+%>
+
+</div>
+<div class="container-input">
+	<label for="password" class="sr-only">Password*</label>
+	<input type="password" name="password" value="<%=user.getPassword()%>" id="password" placeholder="Password*" class="form-control" required autofocus>
+</div>
+
+<div class="container-input">
+	<label for="confirmationPassword" class="sr-only">Password confirmation*</label>
+	<input type="password" name="confirmationPassword" value="<%=user.getConfirmationPassword()%>" id="confirmationPassword" placeholder="Password confirmation*" class="form-control" required autofocus>
+</div>
+
+<div  class="container-input">
+	<label for="profilePicture" class="sr-only">Profile Picture</label>
+	<input type="text" name="profilePicture" value="<%=user.getProfilePicture()%>" id="profilePicture" placeholder="Profile Picture (URL)" class="form-control" onblur="checkImage()" autofocus>
+</div>
+
+<div id = "demo"></div>
+
+<div class="container-input">
+
+        <label class="control-label">Terms of use</label>
+            <div style="border: 1px solid #e5e5e5; height: 200px; overflow: auto; padding: 10px;">
+                <p>Lorem ipsum dolor sit amet, veniam numquam has te. No suas nonumes recusabo mea, est ut graeci definitiones. His ne melius vituperata scriptorem, cum paulo copiosae conclusionemque at. Facer inermis ius in, ad brute nominati referrentur vis. Dicat erant sit ex. Phaedrum imperdiet scribentur vix no, ad latine similique forensibus vel.</p>
+                <p>Dolore populo vivendum vis eu, mei quaestio liberavisse ex. Electram necessitatibus ut vel, quo at probatus oportere, molestie conclusionemque pri cu. Brute augue tincidunt vim id, ne munere fierent rationibus mei. Ut pro volutpat praesent qualisque, an iisque scripta intellegebat eam.</p>
+                <p>Mea ea nonumy labores lobortis, duo quaestio antiopam inimicus et. Ea natum solet iisque quo, prodesset mnesarchum ne vim. Sonet detraxit temporibus no has. Omnium blandit in vim, mea at omnium oblique.</p>
+                <p>Eum ea quidam oportere imperdiet, facer oportere vituperatoribus eu vix, mea ei iisque legendos hendrerit. Blandit comprehensam eu his, ad eros veniam ridens eum. Id odio lobortis elaboraret pro. Vix te fabulas partiendo.</p>
+                <p>Natum oportere et qui, vis graeco tincidunt instructior an, autem elitr noster per et. Mea eu mundi qualisque. Quo nemore nusquam vituperata et, mea ut abhorreant deseruisse, cu nostrud postulant dissentias qui. Postea tincidunt vel eu.</p>
+                <p>Ad eos alia inermis nominavi, eum nibh docendi definitionem no. Ius eu stet mucius nonumes, no mea facilis philosophia necessitatibus. Te eam vidit iisque legendos, vero meliore deserunt ius ea. An qui inimicus inciderint.</p>
+            </div>
+  	Accept <input type="radio">
+
+</div>
+
+<button class="btn btn-lg btn-primary btn-block" type="submit" >Sign up</button>
+</fieldset>
+</form>
+</div>
+</div>
+</body>
+
+</html>
