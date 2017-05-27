@@ -65,7 +65,7 @@ public class RegisterController extends HttpServlet {
 		   else {
 		
 			   request.setAttribute("user",user);
-			   RequestDispatcher dispatcher = request.getRequestDispatcher("RegisterForm.jsp");
+			   RequestDispatcher dispatcher = request.getRequestDispatcher("ViewRegisterForm.jsp");
 			   dispatcher.forward(request, response);
 		   
 		   }

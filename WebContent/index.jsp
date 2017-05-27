@@ -40,7 +40,7 @@
 	<!-- Begin Content Column -->
 	<div id="content">
 	
-		<jsp:include page="RegisterForm.jsp" />
+		<jsp:include page="ViewRegisterForm.jsp" />
 	   			  
 	</div>
 	<!-- End Content Column -->
