@@ -42,33 +42,8 @@ $(document).ready(function(){
 				equalTo : "#password"
 			}, 
 			profilePicture : {
-				maxlength : 100,
-				onfocusout : function checkImage() {
-				System.out.println("imateges")
-				  var xhttp = new XMLHttpRequest();
-				  xhttp.onreadystatechange = function() {
-				    if (this.readyState == 4 && this.status == 200) {
-				     document.getElementById("demo").innerHTML = "<img src=\'" + document.getElementById("profilePicture").value + "\'>";
-				    }
-				  };
-				  xhttp.open("GET", document.getElementById("profilePicture").value, true);
-				  xhttp.send();
-				}
+				maxlength : 200
 			}
-		},
-		onfocusout : function userName() {
-			System.out.println("jsp!!");
-			var xhttp;
-			var str = document.getElementById("user").value;
-			xhttp = new XMLHttpRequest();
-			xhttp.onreadystatechange = function() {
-			  if (this.readyState == 4 && this.status == 200) {
-			    document.getElementById("user").style.color = "orange";
-			    System.out.println(this.getAllResponseHeaders());
-			  }
-			};
-			xhttp.open("POST", "RegisterController?q="+str, true);
-			xhttp.send();   
 		},
 		messages : {
 			name : "Please enter your name",

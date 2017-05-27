@@ -11,11 +11,11 @@ public class DAO {
 	String user = "mysql";
 	String password="prac";
 	
-Class.forName("com.mysql.jdbc.Driver").newInstance();
+	Class.forName("com.mysql.jdbc.Driver").newInstance();
 
 	
-	connection=DriverManager.getConnection("jdbc:mysql://localhost/ts1?user="+user+"&password="+password);
-
+	connection = DriverManager.getConnection("jdbc:mysql://localhost/practica2?user=" + user + "&password=" + password);
+	 	
 	statement=connection.createStatement();
 	String sqlCreate = "CREATE DATABASE IF NOT EXISTS practica2";
 	statement = connection.createStatement();
@@ -38,11 +38,6 @@ Class.forName("com.mysql.jdbc.Driver").newInstance();
 	
 	statement = connection.createStatement();
 	statement.execute(sqlCreate);
-
-	connection = DriverManager.getConnection("jdbc:mysql://localhost/practica2?user=" + user + "&password=" + password);
-
-	
-
 	
 	}
 	//execute queries
