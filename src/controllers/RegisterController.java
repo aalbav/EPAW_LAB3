@@ -48,6 +48,9 @@ public class RegisterController extends HttpServlet {
 				   String query2="INSERT INTO users (user, name, middleName, lastName, mail, password, birthdate, profilePicture) VALUES ('"+user.getUser()+"', '"+user.getName()+"', '"+user.getMiddleName()+"','"+user.getLastName()+"','"+user.getMail()+"','"+user.getPassword()+"','"+user.getBirthdate()+"','"+user.getProfilePicture()+"')";
 				   result = dao.executeInsert(query2);
 				   if(result !=0) {
+					   //Si se ha insertado bien el usuario, queremos ver el login
+					   RequestDispatcher dispatcher = request.getRequestDispatcher("ViewLoginForm.jsp");
+					   dispatcher.forward(request, response);
 					   //request.setAttribute("llista",listUsers());
 					  // RequestDispatcher requestDispatcher = request.getRequestDispatcher("ShowDatabase.jsp");
 					   //requestDispatcher.forward(request,response);
@@ -58,8 +61,7 @@ public class RegisterController extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			   RequestDispatcher dispatcher = request.getRequestDispatcher("ViewLoginForm.jsp");
-			   dispatcher.forward(request, response);
+			   
 		   
 		   } 
 		   else {

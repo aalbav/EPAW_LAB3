@@ -6,12 +6,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" media="screen">
-<link href="css/estil.css" rel="stylesheet">
+<link href="css/formRegister.css" rel="stylesheet">
 <title> Template Register Form (Validation JQuery) </title>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
-
-
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
@@ -25,10 +23,55 @@ $(document).ready(function(){
     $("#registerForm").validate({
     	submitHandler: function(form) {
     		$('#content').load('RegisterController',$("#registerForm").serialize());
-    }
-    
-    
+    },
+    rules : {
+		name : "required",
+		mail : {
+			required : true,
+			email : true
+		},
+		user : {
+			required : true,
+			onfocusout: true
+		},
+		password : {
+			required : true,
+			minlength : 5
+		},
+		confirmationPassword : {
+			minlength : 5,
+			equalTo : "#password"
+		}, 
+		profilePicture : {
+			maxlength : 200
+		}
+	},
+	messages : {
+		name : "Please enter your name",
+		user: "Please enter your username",
+		mail : "Please enter a valid email address",
+		password : {
+			required : "Please provide a password",
+			minlength : "Your password must be at least 5 characters long"
+		},
+		confirmationPassword : {
+			required : "Please repeat your password",
+			minlength : "Your password must be at least 5 characters long"
+		},
+		profilePicture : {
+			maxlength : "Your profile puctures must be at most 100 characters long"
+		}
+	}
     });
+    
+    $('#datePicker')
+    .datepicker({
+        autoclose: true,
+        format: 'dd/mm/yyyy',
+        todayBtn: "linked",
+        language: "es",
+        todayHighlight: true
+    })
 });
 </script>
 </head>
