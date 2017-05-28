@@ -27,7 +27,7 @@ $(document).ready(function(){
     $("#loginForm").validate({
     	submitHandler: function(form) {
     		$('#content').load('LoginController',$("#loginForm").serialize());
-    }
+    	}
     });
 });
 </script>
@@ -37,21 +37,21 @@ $(document).ready(function(){
 
 <div class="wrapper">
     <div class="form-container">
-<form id="loginForm" action="" method="POST">
+<form id="loginForm" action="LoginController" method="POST">
 <h2 class="form-signin-heading">Login</h2>
 
 <div class="loginForm">
 <div class="container-input">
 	<label for="user" class="sr-only">User id*</label>
-	<input id="user" name="user" type="text" placeholder="User id*" class="form-control" value="${login.user}" required autofocus>
-<c:if test="${login.error[0] == 1}">
-   <div class="error"> Nonexistent username in our DB! </div> 
-</c:if>
+	<input id="user" name="user" type="text" placeholder="User id*" class="form-control" minlength="5" value="${login.user}" required autofocus>
 </div>
 
 <div class="container-input">
 	<label for="password" class="sr-only">Password*</label>
 	<input type="password" name="password" value="${login.password}" id="password" placeholder="Password*" class="form-control" required autofocus>
+<c:if test="${login.error[0] == 1}">
+   <div class="error"> Nonexistent this username and password in our DB! </div> 
+</c:if>
 </div>
 
 <button class="btn btn-lg btn-primary btn-block" type="submit" >Login</button>

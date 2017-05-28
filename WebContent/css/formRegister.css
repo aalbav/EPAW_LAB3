@@ -66,6 +66,10 @@ body {
 	color:red;
 }
 
+.loginDone {
+	position: relative;
+    top: 66px;
+}
 
 /*ShowDatabase.jsp*/
 /* body { */

@@ -55,6 +55,11 @@ public class RegisterController extends HttpServlet {
 					  // RequestDispatcher requestDispatcher = request.getRequestDispatcher("ShowDatabase.jsp");
 					   //requestDispatcher.forward(request,response);
 				   }
+				   else {
+					   request.setAttribute("user",user);
+					   RequestDispatcher dispatcher = request.getRequestDispatcher("ViewRegisterForm.jsp");
+					   dispatcher.forward(request, response);
+				   }
 				   
 					  
 				   } catch (Exception e) {
@@ -65,7 +70,6 @@ public class RegisterController extends HttpServlet {
 		   
 		   } 
 		   else {
-		
 			   request.setAttribute("user",user);
 			   RequestDispatcher dispatcher = request.getRequestDispatcher("ViewRegisterForm.jsp");
 			   dispatcher.forward(request, response);
