@@ -55,15 +55,7 @@ $(document).ready(function(){
 </div>
 
 <button class="btn btn-lg btn-primary btn-block" type="submit" >Login</button>
-<!-- <td> User id </td>  -->
-<%-- <td> <input type="text" name="user" value="${login.user}" id="user" class="required" minlength="5"/> </td>  --%>
-<%-- <c:if test="${login.error[0] == 1}"> --%>
-<!--    <td class="error"> Nonexistent username in our DB! </td>  -->
-<%-- </c:if> --%>
-<!-- </tr> -->
-<!-- <tr>  -->
-<!-- <td> <input name="sumbit" type="submit" value="Enviar"> </td> -->
-<!-- </tr> -->
+
 </div>
 </form>
 </div>
