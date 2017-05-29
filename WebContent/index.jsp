@@ -15,7 +15,7 @@
 	<!-- Begin Header -->
 	<div id="header">
 
-		This is the Header
+
 		
 			<!-- Begin Navigation -->
 		<div id="navigation">
@@ -57,7 +57,7 @@
 	<!-- Begin Footer -->
 	<div id="footer">
 	
-		This is the Footer		
+	
 	
 	</div>
 	<!-- End Footer -->

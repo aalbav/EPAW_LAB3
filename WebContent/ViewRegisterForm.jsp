@@ -21,47 +21,15 @@
 <script>
 $(document).ready(function(){
     $("#registerForm").validate({
+    	rules : {
+    		confirmationPassword : {
+    			equalTo : "#password"
+    		}
+    	},
     	submitHandler: function(form) {
+    		alert("Register");
     		$('#content').load('RegisterController',$("#registerForm").serialize());
-    },
-    rules : {
-		name : "required",
-		mail : {
-			required : true,
-			email : true
-		},
-		user : {
-			required : true,
-			onfocusout: true
-		},
-		password : {
-			required : true,
-			minlength : 5
-		},
-		confirmationPassword : {
-			minlength : 5,
-			equalTo : "#password"
-		}, 
-		profilePicture : {
-			maxlength : 200
-		}
-	},
-	messages : {
-		name : "Please enter your name",
-		user: "Please enter your username",
-		mail : "Please enter a valid email address",
-		password : {
-			required : "Please provide a password",
-			minlength : "Your password must be at least 5 characters long"
-		},
-		confirmationPassword : {
-			required : "Please repeat your password",
-			minlength : "Your password must be at least 5 characters long"
-		},
-		profilePicture : {
-			maxlength : "Your profile puctures must be at most 100 characters long"
-		}
-	}
+    	}
     });
     
     $('#datePicker')
@@ -89,7 +57,7 @@ else {
    
 <div class="wrapper">
     <div class="form-container">
-<form class="form-signin" action="RegisterController" method="post" id="registerForm">
+<form class="form-signin" action="" method="post" id="registerForm">
 <h2 class="form-signin-heading">Registration</h2>
 <fieldset>
 <div class="container-input">
@@ -144,7 +112,6 @@ else {
 	user.setError(0,0);
 %>
 
-
 </div>
 <div class="container-input">
 	<label for="password" class="sr-only">Password*</label>
@@ -174,8 +141,8 @@ else {
                 <p>Natum oportere et qui, vis graeco tincidunt instructior an, autem elitr noster per et. Mea eu mundi qualisque. Quo nemore nusquam vituperata et, mea ut abhorreant deseruisse, cu nostrud postulant dissentias qui. Postea tincidunt vel eu.</p>
                 <p>Ad eos alia inermis nominavi, eum nibh docendi definitionem no. Ius eu stet mucius nonumes, no mea facilis philosophia necessitatibus. Te eam vidit iisque legendos, vero meliore deserunt ius ea. An qui inimicus inciderint.</p>
             </div>
-  	Accept <input type="radio">
 
+  	Accept <input type="checkbox" required>
 </div>
 
 <button class="btn btn-lg btn-primary btn-block" type="submit" >Sign up</button>

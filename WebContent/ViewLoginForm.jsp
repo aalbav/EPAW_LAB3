@@ -20,8 +20,6 @@
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
 
-
-
 <script>
 $(document).ready(function(){
     $("#loginForm").validate({
@@ -49,9 +47,9 @@ $(document).ready(function(){
 <div class="container-input">
 	<label for="password" class="sr-only">Password*</label>
 	<input type="password" name="password" value="${login.password}" id="password" placeholder="Password*" class="form-control" required autofocus>
-<c:if test="${login.error[0] == 1}">
-   <div class="error"> Nonexistent this username and password in our DB! </div> 
-</c:if>
+	<c:if test="${login.error[0] == 1}">
+	   <div class="error"> Nonexistent this username and password in our DB! </div> 
+	</c:if>
 </div>
 
 <button class="btn btn-lg btn-primary btn-block" type="submit" >Login</button>
