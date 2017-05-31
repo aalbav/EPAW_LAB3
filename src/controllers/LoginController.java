@@ -42,10 +42,11 @@ public class LoginController extends HttpServlet {
 			
 	    	BeanUtils.populate(login, request.getParameterMap());
 			
-	    	if (login.isComplete()) {
-		    	System.out.println(login.getUser());
+	    	if (login.isComplete()) 
+	    	{
 		    	HttpSession session = request.getSession();
 		    	session.setAttribute("user",login.getUser());
+		    	session.setAttribute("pass",login.getPassword());
 		    	RequestDispatcher dispatcher = request.getRequestDispatcher("ViewLoginDone.jsp");
 			    dispatcher.forward(request, response);
 			    
