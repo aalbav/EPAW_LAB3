@@ -22,46 +22,6 @@
 
 <script>
 $(document).ready(function(){
-     $("#registerForm").validate({
-		rules : {
-			name : "required",
-			mail : {
-				required : true,
-				email : true
-			},
-			user : {
-				required : true,
-				onfocusout: true
-			},
-			password : {
-				required : true,
-				minlength : 5
-			},
-			confirmationPassword : {
-				minlength : 5,
-				equalTo : "#password"
-			}, 
-			profilePicture : {
-				maxlength : 200
-			}
-		},
-		messages : {
-			name : "Please enter your name",
-			user: "Please enter your username",
-			mail : "Please enter a valid email address",
-			password : {
-				required : "Please provide a password",
-				minlength : "Your password must be at least 5 characters long"
-			},
-			confirmationPassword : {
-				required : "Please repeat your password",
-				minlength : "Your password must be at least 5 characters long"
-			},
-			profilePicture : {
-				maxlength : "Your profile puctures must be at most 100 characters long"
-			}
-		}
-	});
      
      $('#datePicker')
      .datepicker({

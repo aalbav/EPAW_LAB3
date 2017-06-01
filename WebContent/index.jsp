@@ -40,7 +40,17 @@
 	<!-- Begin Content Column -->
 	<div id="content">
 	
-		<jsp:include page="ViewRegisterForm.jsp" />
+		<%
+			String user; 
+			if (request.getSession().getAttribute("user") == null ) {
+				user = "ViewRegisterForm.jsp";
+			}
+			else{
+				user = "ViewLoginDone.jsp";
+			}
+		%>
+		
+		<jsp:include page= "<%= user %>" />
 	   			  
 	</div>
 	<!-- End Content Column -->

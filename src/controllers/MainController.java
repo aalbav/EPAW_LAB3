@@ -32,16 +32,14 @@ public class MainController extends HttpServlet {
 		
 		RequestDispatcher dispatcher;
 		
-		String dispatch = "index.jsp";;
-		
 		HttpSession session = request.getSession();
 		
-        if(!false && session!=null)        	
-        
-        	dispatch = "ViewLoginDone.jsp";
+		String dispatch = (false && session!=null) ? "ViewLoginDone.jsp" : "index.jsp";        	
         
         dispatcher = request.getRequestDispatcher( dispatch );
-		dispatcher.forward(request, response);	
+        
+		dispatcher.forward(request, response);
+		
 		}
 
 	/**
