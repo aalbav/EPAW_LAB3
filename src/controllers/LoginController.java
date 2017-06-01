@@ -37,7 +37,12 @@ public class LoginController extends HttpServlet {
 
 		System.out.println("LoginController.");
 		
+		RequestDispatcher dispatcher;
+		
+		String dispatch;
+		
 		BeanLogin login = new BeanLogin();
+		
 	    try {
 			
 	    	BeanUtils.populate(login, request.getParameterMap());
@@ -47,17 +52,19 @@ public class LoginController extends HttpServlet {
 		    	HttpSession session = request.getSession();
 		    	session.setAttribute("user",login.getUser());
 		    	session.setAttribute("pass",login.getPassword());
-		    	RequestDispatcher dispatcher = request.getRequestDispatcher("ViewLoginDone.jsp");
-			    dispatcher.forward(request, response);
-			    
+		    	dispatch = "ViewLoginDone.jsp";
+
 		    } 
 			else {
 		     
 			    request.setAttribute("login",login);
-			    RequestDispatcher dispatcher = request.getRequestDispatcher("ViewLoginForm.jsp");
-			    dispatcher.forward(request, response);
-		    	
+			    dispatch = "ViewLoginForm.jsp";
+			    
 		    }
+	    	
+	    	dispatcher = request.getRequestDispatcher( dispatch );
+	    	dispatcher.forward(request, response);
+	    	
 		} catch (IllegalAccessException | InvocationTargetException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

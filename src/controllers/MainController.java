@@ -30,17 +30,17 @@ public class MainController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		RequestDispatcher dispatcher;
+		
+		String dispatch = "index.jsp";;
+		
 		HttpSession session = request.getSession();
 		
-        if(session!=null){
-        	
-        	String name = (String)session.getAttribute("user");
-        	String pass = (String)session.getAttribute("pass");
-          
-        	System.out.println("Hello, " + name + " Welcome to Profile " + pass);  
-        }  
-				
-		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+        if(!false && session!=null)        	
+        
+        	dispatch = "ViewLoginDone.jsp";
+        
+        dispatcher = request.getRequestDispatcher( dispatch );
 		dispatcher.forward(request, response);	
 		}
 
