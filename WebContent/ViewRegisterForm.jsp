@@ -27,11 +27,10 @@ $(document).ready(function(){
     		}
     	},
     	submitHandler: function(form) {
-    		alert("Register");
+    		alert('hola');
     		$('#content').load('RegisterController',$("#registerForm").serialize());
     	}
     });
-    
     $('#datePicker')
     .datepicker({
         autoclose: true,
@@ -39,9 +38,10 @@ $(document).ready(function(){
         todayBtn: "linked",
         language: "es",
         todayHighlight: true
-    })
+    });
 });
 </script>
+
 </head>
 <body>
 
@@ -100,7 +100,7 @@ else {
 </div>
 <div class="container-input">
 	<label for="mail" class="sr-only">E-mail</label>
-	<input type="email" name="mail" id="mail" value="${user.mail}" placeholder="E-mail*" class="form-control" required email autofocus>
+	<input type="email" name="mail" id="mail" value="${user.mail}" placeholder="E-mail*" class="form-control" required autofocus>
 <%   
 	if (user.getError()[1] == 1) {
       %> 
@@ -142,7 +142,7 @@ else {
                 <p>Ad eos alia inermis nominavi, eum nibh docendi definitionem no. Ius eu stet mucius nonumes, no mea facilis philosophia necessitatibus. Te eam vidit iisque legendos, vero meliore deserunt ius ea. An qui inimicus inciderint.</p>
             </div>
 
-  	Accept <input type="checkbox" required>
+  	Accept <input type="checkbox">
 </div>
 
 <button class="btn btn-lg btn-primary btn-block" type="submit" >Sign up</button>
